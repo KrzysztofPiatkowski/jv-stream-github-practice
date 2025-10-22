@@ -1,12 +1,10 @@
 package practice;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import model.Candidate;
 import model.Person;
 
@@ -25,7 +23,8 @@ public class StreamPractice {
                 .map(Integer::parseInt)
                 .filter(n -> n % 2 == 0)
                 .min(Integer::compareTo)
-                .orElseThrow(() -> new RuntimeException("Can't get min value from list: " + numbers));
+                .orElseThrow(() -> new RuntimeException("Can't get min value from list: "
+                        + numbers));
     }
 
     /**
@@ -37,7 +36,7 @@ public class StreamPractice {
         return IntStream.range(0, numbers.size())
                 .map(i -> {
                     int value = numbers.get(i);
-                    return (i % 2 ==1) ? value - 1 : value;
+                    return (i % 2 == 1) ? value - 1 : value;
                 })
                 .filter(n -> n % 2 == 1)
                 .average()
